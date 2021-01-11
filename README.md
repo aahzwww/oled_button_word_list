@@ -8,3 +8,5 @@ The words are stored in the the arry WORD, the rest of the logic assumes a 10 wo
 Interval is the amount of time each word is displayed for.
 
 Digital pin 2 is used for the button and analogue pins 4 (SDA) and 5 (SCL) are used for the screen. 
+
+![wiring_diagram](oled_button_word_list.png)
