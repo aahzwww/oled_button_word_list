@@ -1,3 +1,4 @@
+
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -73,19 +74,23 @@ if (First == 0){
 }
 
 if (  ElapsedTime > Interval && x < 10){
-  listWords(x);
   x++;
+  listWords(x);
+
   StartTime = millis();
+  delay(500);  //make sure word has displayed before checking for a button press
+
 }
 
 
-//button press increases score and pauses for 0.3 of a seconds to avoid the multiple presses registering
+//button press increases score and pauses for 0.5 of a seconds to avoid the multiple presses registering
 if ( buttonState == HIGH) {
   Score++;
   x++;
   StartTime = millis();
-  delay(300);
   listWords(x);
+  delay(500);  //stop long presses registering twice
+
   
 
 }
@@ -143,7 +148,7 @@ void showScore(void){
     display.println(Score);
     display.display();      // Show initial text
     delay(2000);
-    listStars(Score);
+    showStars(Score);
 }
 
 //display the score as stars
